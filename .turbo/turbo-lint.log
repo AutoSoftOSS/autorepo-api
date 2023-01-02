@@ -1,7 +1,0 @@
-$ eslint source --ext .ts
-
-/Users/connorwhite/dev/auto/packages/autorepo-api/source/commands/init/readme/footer.ts
-  21:1  warning  This line has a length of 242. Maximum allowed is 180  max-len
-
-✖ 1 problem (0 errors, 1 warning)
-
