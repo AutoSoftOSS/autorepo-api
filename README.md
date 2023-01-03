@@ -4,8 +4,8 @@
   <a href="https://npmjs.com/package/@autosoft/autorepo-api">
     <img alt="npm" src="https://img.shields.io/npm/v/@autosoft/autorepo-api.svg">
   </a>
-  <a href="https://github.com/autosoftinc/autorepo-api">
-    <img alt="typescript" src="https://img.shields.io/github/languages/top/autosoftinc/autorepo-api.svg">
+  <a href="https://github.com/autosoftoss/autorepo-api">
+    <img alt="typescript" src="https://img.shields.io/github/languages/top/autosoftoss/autorepo-api.svg">
   </a>
 </div>
 
@@ -16,8 +16,8 @@
 <br />
 
 _If I should maintain this repo, please ⭐️_
-<a href="https://github.com/autosoftinc/autorepo-api">
-  <img align="right" alt="GitHub stars" src="https://img.shields.io/github/stars/autosoftinc/autorepo-api?label=%E2%AD%90%EF%B8%8F&style=social">
+<a href="https://github.com/autosoftoss/autorepo-api">
+  <img align="right" alt="GitHub stars" src="https://img.shields.io/github/stars/autosoftoss/autorepo-api?label=%E2%AD%90%EF%B8%8F&style=social">
 </a>
 
 _DM me on [Twitter](https://twitter.com/bconnorwhite) if you have questions or suggestions._

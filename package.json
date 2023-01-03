@@ -9,7 +9,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/autosoftinc/autorepo-api.git"
+    "url": "git+https://github.com/autosoftoss/autorepo-api.git"
   },
   "keywords": [
     "auto",
