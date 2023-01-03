@@ -83,7 +83,9 @@ export const initPackage = clee("package")
       files: options.monorepo ? undefined : [
         `${root.files().auto.files().build.relative}/**/!(tsconfig.tsbuildinfo)`
       ],
-      engines: options.monorepo ? undefined : pkg.engines,
+      engines: pkg.engines ?? (options.monorepo ? undefined : {
+        node: "^14.13.1 || >=16.0.0"
+      }),
       scripts: options.monorepo ? {
         build: "turbo build",
         lint: "turbo lint",
