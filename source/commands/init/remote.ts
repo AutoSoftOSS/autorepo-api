@@ -16,7 +16,6 @@ export const initRemote = clee("remote")
   .option("-c", "--cwd", "[path]", "Path to initialize the git remote from", parseString)
   .option("--no-save-token", "Don't save the GitHub token")
   .action(async (options) => {
-    const config = new Conf();
     const pkgJSON = await structure(options.cwd).files().packageJSON.read();
     // TODO: - you need a "getRepository" function that tries to get the value from package.json, and if doesn't exist, prompts for it
     const split = pkgJSON?.name?.split("/").reverse() ?? [];
@@ -35,6 +34,9 @@ export const initRemote = clee("remote")
     }];
     const repoAnswers = await enquirer.prompt<{ name: string; namespace: string; star: boolean; }>(repoQuestions);
     const scopeType = await getScope(repoAnswers.namespace);
+    const config = new Conf({
+      projectName: "autorepo"
+    });
     const tokenQuestions = [{
       type: "input",
       name: "gitHubToken",
