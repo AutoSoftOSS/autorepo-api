@@ -8,6 +8,7 @@ import { dev } from "./dev.js";
 import { lint } from "./lint/index.js";
 import { test } from "./test/index.js";
 import { typecheck } from "./typecheck.js";
+import { migrate } from "./migrate/index.js";
 
 // @ts-ignore
 export const autorepo = clee("autorepo")
@@ -21,7 +22,8 @@ export const autorepo = clee("autorepo")
   .command(dev)
   .command(lint)
   .command(test)
-  .command(typecheck);
+  .command(typecheck)
+  .command(migrate);
 
 export * from "./init/index.js";
 export * from "./create.js";
@@ -32,3 +34,4 @@ export * from "./dev.js";
 export * from "./lint/index.js";
 export * from "./test/index.js";
 export * from "./typecheck.js";
+export * from "./migrate/index.js";
