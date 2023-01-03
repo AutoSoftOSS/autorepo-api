@@ -1,12 +1,10 @@
 import clee, { parseString } from "clee";
 import { relative } from "node:path";
 import enquirer from "enquirer";
-import Conf from "conf";
-import { Octokit } from "@octokit/rest";
 import { exec } from "@bconnorwhite/exec";
 import { structure } from "../../structure.js";
 import { initGit } from "./git.js";
-import { createRepo, getScope } from "../../utils/github.js";
+import { createRepo, getScope, parsePackageName, getOctoKit } from "../../utils/index.js";
 
 export const initRemote = clee("remote")
   .description("Initialize GitHub repository")
@@ -14,13 +12,11 @@ export const initRemote = clee("remote")
   .option("-t", "--token", "[token]", "GitHub token", parseString)
   .option("-s", "--submodule", "Initialize as a submodule")
   .option("-c", "--cwd", "[path]", "Path to initialize the git remote from", parseString)
-  .option("--no-save-token", "Don't save the GitHub token")
   .action(async (options) => {
     const pkgJSON = await structure(options.cwd).files().packageJSON.read();
     // TODO: - you need a "getRepository" function that tries to get the value from package.json, and if doesn't exist, prompts for it
-    const split = pkgJSON?.name?.split("/").reverse() ?? [];
-    const name = split[0];
-    const namespace = split[1]?.replace("@", "");
+    const { name, org } = parsePackageName(pkgJSON?.name);
+    const namespace = org?.replace("@", "");
     const repoQuestions: any = [{
       type: "input",
       name: "namespace",
@@ -34,23 +30,7 @@ export const initRemote = clee("remote")
     }];
     const repoAnswers = await enquirer.prompt<{ name: string; namespace: string; star: boolean; }>(repoQuestions);
     const scopeType = await getScope(repoAnswers.namespace);
-    const config = new Conf({
-      projectName: "autorepo"
-    });
-    const tokenQuestions = [{
-      type: "input",
-      name: "gitHubToken",
-      message: scopeType === "user" ? "Personal GitHub token" : `Org GitHub token (for ${repoAnswers.namespace}):`,
-      default: options.token ?? config.get(scopeType === "user" ? "gitHubToken" : `gitHubToken:${repoAnswers.namespace}`)
-    }];
-    const tokenAnswers = await enquirer.prompt<{ gitHubToken: string; }>(tokenQuestions as any);
-    // Save tokens to config
-    if(options.noSaveToken !== true) {
-      config.set(scopeType === "user" ? "gitHubToken" : `gitHubToken:${repoAnswers.namespace}`, tokenAnswers.gitHubToken);
-    }
-    const octokit = new Octokit({
-      auth: tokenAnswers.gitHubToken
-    });
+    const octokit = await getOctoKit(repoAnswers.namespace);
     const repo = await createRepo(repoAnswers.namespace, {
       name: repoAnswers.name,
       description: pkgJSON?.description,

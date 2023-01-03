@@ -37,8 +37,7 @@ export const init = clee("init")
       cwd: options.cwd,
       namespace: undefined,
       token: undefined,
-      submodule: false,
-      noSaveToken: false
+      submodule: false
     });
     await initPackage({
       cwd: options.cwd,
