@@ -27,6 +27,7 @@
     "build": "tsc --project ./tsconfig.json --incremental",
     "dev": "ts-node-esm ./scripts/dev.ts",
     "lint": "eslint source --ext .ts",
+    "prepack": "yarn build",
     "test": "jest"
   },
   "dependencies": {
