@@ -4,7 +4,7 @@ import {
   initPackage,
   initReadme,
   initSource,
-  initTSConfig,
+  initTSConfig
   // initTest,
   // initTestD
 } from "./init/index.js";

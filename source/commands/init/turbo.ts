@@ -8,8 +8,8 @@ export const initTurbo = clee("turbo")
     const file = root.files().turboJSON;
     if(!(await file.exists())) {
       await root.files().turboJSON.write({
-        "$schema": "https://turbo.build/schema.json",
-        "pipeline": {
+        $schema: "https://turbo.build/schema.json",
+        pipeline: {
           build: {
             dependsOn: ["^build"],
             outputs: [

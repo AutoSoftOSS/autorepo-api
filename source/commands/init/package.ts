@@ -114,7 +114,7 @@ export const initPackage = clee("package")
       workspaces: options.monorepo ? [
         "clients/*",
         "containers/*",
-        "packages/*",
+        "packages/*"
       ] : undefined
     });
     // Install dependencies
