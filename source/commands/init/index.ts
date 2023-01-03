@@ -12,7 +12,6 @@ import { initReadme } from "./readme/index.js";
 import { initTest } from "./test.js";
 import { initTestD } from "./test-d.js";
 import { initTurbo } from "./turbo.js";
-import { initYarnRC } from "./yarnrc.js";
 
 export const init = clee("init")
   .description("Initialize a new project")
@@ -27,7 +26,6 @@ export const init = clee("init")
   .command(initTest)
   .command(initTestD)
   .command(initTurbo)
-  .command(initYarnRC)
   .option("-c", "--cwd", "[path]", "Path to initialize the project from", parseString)
   .option("-m", "--monorepo", "Initialize as a monorepo")
   .action(async (options) => {
@@ -49,8 +47,7 @@ export const init = clee("init")
     });
     await Promise.all([
       initEditorconfig({ cwd: options.cwd }),
-      initReadme({ cwd: options.cwd }),
-      initYarnRC({ cwd: options.cwd })
+      initReadme({ cwd: options.cwd })
     ]);
     if(options.monorepo) {
       await initTurbo({ cwd: options.cwd });
@@ -75,4 +72,3 @@ export * from "./readme/index.js";
 export * from "./test.js";
 export * from "./test-d.js";
 export * from "./turbo.js";
-export * from "./yarnrc.js";
