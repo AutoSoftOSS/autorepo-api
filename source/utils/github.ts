@@ -1,5 +1,7 @@
 import { Octokit } from "@octokit/rest";
 import mem from "mem";
+import Conf from "conf";
+import enquirer from "enquirer";
 
 type Scope = "org" | "user";
 
@@ -27,4 +29,23 @@ export async function createRepo(scope: string, options: GithubRepoOptions, octo
       ...options
     });
   }
+}
+
+const getGitHubToken = mem(async (namespace?: string) => {
+  const config = new Conf({ projectName: "autorepo" });
+  const answers = await enquirer.prompt<{ gitHubToken: string; }>({
+    type: "input",
+    name: "gitHubToken",
+    message: `GitHub token${namespace ? ` (for ${namespace})` : ""}:`,
+    default: config.get(`githubToken${namespace ? `:${namespace}` : ""}`)
+  } as any);
+  config.set(`githubToken${namespace ? `:${namespace}` : ""}`, answers.gitHubToken);
+  return answers.gitHubToken;
+});
+
+export async function getOctoKit(namespace?: string) {
+  const gitHubToken = await getGitHubToken(namespace);
+  return new Octokit({
+    auth: gitHubToken
+  });
 }

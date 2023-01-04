@@ -68,7 +68,7 @@ export const initPackage = clee("package")
     // Write package.json
     await structure(options.cwd).files().packageJSON.write({
       name: pkg.name,
-      version: pkg.version ?? (options.monorepo ? undefined : "0.1.0"),
+      version: pkg.version ?? (options.monorepo ? undefined : "0.0.0"),
       description: pkg.description,
       main: options.monorepo ? undefined : root.files().auto.files().build.files().index.relative,
       author: typeof pkg.author === "string" ? pkg.author : pkg.author?.name,
