@@ -20,14 +20,14 @@ export const autorepo = clee("autorepo")
   .command(create)
   .command(importPackage)
   .command(exportPackage)
+  .command(migrate)
+  .command(update)
   .command(build)
   .command(dev)
   .command(lint)
-  .command(test)
-  .command(typecheck)
-  .command(migrate)
   .command(release)
-  .command(update);
+  .command(test)
+  .command(typecheck);
 
 export * from "./init/index.js";
 export * from "./create.js";
