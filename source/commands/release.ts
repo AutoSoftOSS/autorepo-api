@@ -70,7 +70,6 @@ export const release = clee("release")
       const pullRequest = await octokit.pulls.create({
         owner,
         repo,
-        title: `Release ${tag}`,
         head: releaseBranch,
         base: primary,
         issue: issue.data.number,
