@@ -6,11 +6,10 @@ import { structure } from "../../structure.js";
 export const initGitignore = clee("gitignore")
   .description("Initialize a .gitignore file")
   .option("-c", "--cwd", "[path]", "Path to root of the git repository", parseString)
-  .option("-m", "--monorepo", "Initialize as a monorepo")
-  .action(async ({ cwd, monorepo }) => {
+  .action(async ({ cwd }) => {
     structure(cwd).files().gitIgnore.write(join([
       `${structure().files().auto.relative}`,
-      monorepo ? `${structure().files().turbo.relative}` : undefined,
+      `${structure().files().turbo.relative}`,
       "node_modules",
       ".DS_Store",
       "*.txt",

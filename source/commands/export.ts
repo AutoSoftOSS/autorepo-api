@@ -16,7 +16,7 @@ export const exportPackage = clee("export")
       json.private = false;
       await pkgJSON.write(JSON.stringify(json, null, 2));
       await exec("git", ["rm", pkgDir.path, { cached: true, r: true }], { silent: true });
-      await initGitignore({ cwd: pkgDir.path, monorepo: true });
+      await initGitignore({ cwd: pkgDir.path });
       await initRemote({
         cwd: pkgDir.path,
         submodule: true,

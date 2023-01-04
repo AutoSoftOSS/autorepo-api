@@ -33,7 +33,7 @@ export const init = clee("init")
   .action(async (options) => {
     const root = structure(options.cwd);
     await root.write({ recursive: true });
-    await initGitignore({ cwd: options.cwd, monorepo: options.monorepo });
+    await initGitignore({ cwd: options.cwd });
     await initGit({ cwd: options.cwd });
     await initRemote({
       cwd: options.cwd,
