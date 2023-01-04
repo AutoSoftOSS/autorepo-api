@@ -1,7 +1,4 @@
-import Conf from "conf";
-import enquirer from "enquirer";
-import { Octokit } from "@octokit/rest";
-import mem from "mem";
+import { Readable } from "node:stream";
 import { Repository } from "types-pkg-json";
 
 export function parsePackageName(name?: string) {
@@ -25,23 +22,31 @@ export function parseRepositoryURL(repository?: Repository) {
   }
 }
 
-const getGitHubToken = mem(async (namespace: string) => {
-  const config = new Conf({ projectName: "autorepo" });
-  const answers = await enquirer.prompt<{ gitHubToken: string; }>({
-    type: "input",
-    name: "gitHubToken",
-    message: `GitHub token (for ${namespace}):`,
-    default: config.get(`githubToken:${namespace}`)
-  } as any);
-  config.set(`githubToken:${namespace}`, answers.gitHubToken);
-  return answers.gitHubToken;
-});
-
-export async function getOctoKit(namespace: string) {
-  const gitHubToken = await getGitHubToken(namespace);
-  return new Octokit({
-    auth: gitHubToken
+export function streamToBuffer(readStream: Readable) {
+  return new Promise<Buffer>((resolve, reject) => {
+    let buffer = Buffer.from([]);
+    // Read data from the read stream into the buffer
+    readStream.on("data", (chunk) => {
+      buffer = Buffer.concat([buffer, chunk]);
+    });
+    readStream.on("end", () => {
+      resolve(buffer);
+    });
+    readStream.on("error", reject);
   });
 }
 
+export function bufferToStream(buffer: Buffer) {
+  const readStream = new Readable();
+  readStream.push(buffer);
+  readStream.push(null);
+  return readStream;
+}
+
+export async function streamToString(readStream: Readable) {
+  return streamToBuffer(readStream).then((buffer) => buffer.toString());
+}
+
 export * from "./github.js";
+export * from "./git.js";
+export * from "./changelog.js";

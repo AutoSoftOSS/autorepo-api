@@ -8,6 +8,7 @@ export const structure = (path = ".") => root(path, {
     }),
     coverage: directory("coverage")
   }),
+  changelog: file("CHANGELOG.md"),
   editorConfig: file(".editorconfig"),
   gitIgnore: file(".gitignore"),
   packageJSON: packageJSONFile("package.json"),

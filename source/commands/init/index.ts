@@ -12,6 +12,7 @@ import { initReadme } from "./readme/index.js";
 import { initTest } from "./test.js";
 import { initTestD } from "./test-d.js";
 import { initTurbo } from "./turbo.js";
+import { initChangelog } from "./changelog.js";
 
 export const init = clee("init")
   .description("Initialize a new project")
@@ -26,6 +27,7 @@ export const init = clee("init")
   .command(initTest)
   .command(initTestD)
   .command(initTurbo)
+  .command(initChangelog)
   .option("-c", "--cwd", "[path]", "Path to initialize the project from", parseString)
   .option("-m", "--monorepo", "Initialize as a monorepo")
   .action(async (options) => {
@@ -71,3 +73,4 @@ export * from "./readme/index.js";
 export * from "./test.js";
 export * from "./test-d.js";
 export * from "./turbo.js";
+export * from "./changelog.js";
