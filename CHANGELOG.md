@@ -1,3 +1,16 @@
+## [0.2.2](https://github.com/autosoftoss/autorepo-api/compare/v0.2.0...v0.2.2) (2023-01-04)
+
+
+### Bug Fixes
+
+* adjust release tagging so the correct commit is tagged ([3048a36](https://github.com/autosoftoss/autorepo-api/commit/3048a360d0d7a17f116b7141a2e2bf64e869cd79))
+* don't include changelog segment header in release body ([844f425](https://github.com/autosoftoss/autorepo-api/commit/844f4251939899f56eedeb7397889607541e1cc9))
+* push to release branch during release script ([d2319dd](https://github.com/autosoftoss/autorepo-api/commit/d2319dd1d9191c753345313a6c3fc179dad26981))
+* remove pull request title during release script ([fb9ca0a](https://github.com/autosoftoss/autorepo-api/commit/fb9ca0a88b8c7559c48d67f12b8fdb69264dfb0d))
+* reset git correctly before pulling after a release ([ff629a0](https://github.com/autosoftoss/autorepo-api/commit/ff629a01317ce77ea7c229a8034b7781af964602))
+
+
+
 ## [0.2.1](https://github.com/autosoftoss/autorepo-api/compare/v0.2.0...v0.2.1) (2023-01-04)
 
 
