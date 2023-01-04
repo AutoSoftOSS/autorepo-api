@@ -2,7 +2,7 @@ import clee, { parseString } from "clee";
 import join from "join-newlines";
 import { structure } from "../../structure.js";
 
-export const initEditorconfig = clee("ignore")
+export const initEditorconfig = clee("editorconfig")
   .description("Initialize a .editorconfig file")
   .option("-c", "--cwd", "[path]", "Path to root of the package", parseString)
   .action(async (options) => {
