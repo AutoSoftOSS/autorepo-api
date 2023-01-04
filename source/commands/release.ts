@@ -31,19 +31,29 @@ function getReleaseType() {
   });
 }
 
-async function getNextVersion(currentVersion: string) {
-  const releaseType = await getReleaseType();
+async function getNextVersion(currentVersion: string, stable = false) {
+  let releaseType = await getReleaseType();
+  if(currentVersion.startsWith("0.")) {
+    if(stable) {
+      return "1.0.0";
+    } else if(releaseType === "major") {
+      releaseType = "minor";
+    } else if(releaseType === "minor") {
+      releaseType = "patch";
+    }
+  }
   return increment(currentVersion, releaseType) ?? currentVersion;
 }
 
 export const release = clee("release")
   .description("Bump the version, update the changelog, commit, and tag")
   .option("-c", "--cwd", "[path]", "Path to root of the package", parseString)
+  .option("-s", "--stable", "Bump to 1.0.0")
   .action(async (options) => {
     const root = structure(options.cwd);
     const pkg = structure(options.cwd).files().packageJSON;
     const pkgJSON = await pkg.read();
-    const version = await getNextVersion(pkgJSON?.version ?? "0.0.0");
+    const version = await getNextVersion(pkgJSON?.version ?? "0.0.0", options.stable);
     await pkg.merge({ version });
     await updateChangelog({ cwd: options.cwd });
     const changes = getChangelogSegmentBody(await streamToString(getNextChangelog()));
