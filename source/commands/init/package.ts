@@ -1,6 +1,6 @@
 import clee, { parseString } from "clee";
 import enquirer from "enquirer";
-// import install from "package-add";
+import install from "package-add";
 import { structure } from "../../structure.js";
 
 function parsePackageName(name: string) {
@@ -123,8 +123,5 @@ export const initPackage = clee("package")
       ] : undefined
     });
     // Install dependencies
-    // await install(["autorepo"], {
-    //   save: "dev",
-    //   ignoreWorkspaceRootCheck: options.monorepo
-    // });
+    await install("autorepo", { save: "dev", ignoreWorkspaceRootCheck: options.monorepo });
   });
