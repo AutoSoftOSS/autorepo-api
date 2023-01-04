@@ -24,7 +24,7 @@ export async function checkout(branch: string) {
 }
 
 export async function pull(branch: string) {
-  await checkout(branch);
+  await exec("git", ["reset", "--soft", `origin/${branch}`], { silent: true });
   await exec("git", ["pull", "--set-upstream", "origin", branch]);
 }
 
