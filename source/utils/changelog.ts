@@ -13,3 +13,7 @@ export function getFullChangelog() {
     releaseCount: 1
   });
 }
+
+export function getChangelogSegmentBody(segment: string) {
+  return segment.split("\n").slice(3).join("\n");
+}

@@ -15,7 +15,8 @@ import {
   commit,
   streamToString,
   getNextChangelog,
-  tag
+  tag,
+  getChangelogSegmentBody
 } from "../utils/index.js";
 
 function getReleaseType() {
@@ -45,7 +46,7 @@ export const release = clee("release")
     const version = await getNextVersion(pkgJSON?.version ?? "0.0.0");
     await pkg.merge({ version });
     await updateChangelog({ cwd: options.cwd });
-    const changes = await streamToString(getNextChangelog());
+    const changes = getChangelogSegmentBody(await streamToString(getNextChangelog()));
     const octokit = await getOctoKit(parseRepositoryURL(pkgJSON?.repository)?.owner);
     const { owner, repo } = parseRepositoryURL(pkgJSON?.repository) ?? {};
     if(owner && repo) {
