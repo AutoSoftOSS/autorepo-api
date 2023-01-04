@@ -1,6 +1,10 @@
 import { Readable } from "node:stream";
 import { Repository } from "types-pkg-json";
 
+/**
+ * Parse a package name and org from a full name  
+ * Example format: `@org/package-name`
+ */
 export function parsePackageName(name?: string) {
   const split = name?.split("/").reverse() ?? [];
   return {
