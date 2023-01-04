@@ -33,12 +33,14 @@ export async function deleteBranch(branch: string) {
   await exec("git", ["push", "--delete", "origin", branch], { silent: true });
 }
 
-export async function commit(files: string[], { message, tag }: { message: string, tag?: string }) {
+export async function tag(tagName: string) {
+  await exec("git", ["tag", tagName], { silent: true });
+  await exec("git", ["push", "--tags"], { silent: true });
+}
+
+export async function commit(files: string[], message: string) {
   if(files.length > 0) {
     await exec("git", ["add", ...files], { silent: true });
   }
   await exec("git", ["commit", "--message", message], { silent: true });
-  if(tag) {
-    await exec("git", ["tag", tag], { silent: true });
-  }
 }
