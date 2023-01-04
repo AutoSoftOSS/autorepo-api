@@ -117,8 +117,6 @@ export const initPackage = clee("package")
       },
       // packageManager: // TODO: get package manager + version, ex: "pnpm@7.15.0"
       workspaces: options.monorepo ? [
-        "clients/*",
-        "containers/*",
         "packages/*"
       ] : undefined
     });
