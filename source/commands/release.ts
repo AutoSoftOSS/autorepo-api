@@ -2,6 +2,7 @@ import clee, { parseString } from "clee";
 import conventionalRecommendedBump from "conventional-recommended-bump";
 import { inc as increment } from "semver";
 import { updateChangelog } from "./update/changelog.js";
+import { push } from "./push.js";
 import { structure } from "../structure.js";
 import {
   getOctoKit,
@@ -58,6 +59,7 @@ export const release = clee("release")
         message: tag,
         tag
       });
+      await push(releaseBranch);
       // Create an Issue for the release
       const issue = await octokit.issues.create({
         owner,
