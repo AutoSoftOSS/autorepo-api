@@ -7,4 +7,5 @@ export const push = clee("push")
   .action(async (branch) => {
     const target = branch ?? await getCurrentBranch();
     await exec("git", ["push", "--set-upstream", "origin", target], { silent: true });
+    await exec("git", ["push", "--tags"], { silent: true });
   });
