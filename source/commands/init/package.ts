@@ -100,6 +100,8 @@ export const initPackage = clee("package")
         test: "auto test",
         typecheck: "auto typecheck"
       },
+      bundleDependencies: pkg.bundleDependencies,
+      bundledDependencies: pkg.bundledDependencies,
       dependencies: pkg.dependencies,
       devDependencies: pkg.devDependencies,
       peerDependencies: pkg.peerDependencies,
