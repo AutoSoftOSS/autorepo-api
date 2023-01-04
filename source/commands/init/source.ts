@@ -1,7 +1,7 @@
 import clee, { parseString } from "clee";
 import { structure } from "../../structure.js";
 
-export const initSource = clee("clee")
+export const initSource = clee("source")
   .description("Initialize the source directory")
   .option("-c", "--cwd", "[path]", "Directory to initialize the source directory within", parseString)
   .action(async ({ cwd }) => {
