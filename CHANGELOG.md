@@ -1,3 +1,12 @@
+## [0.2.3](https://github.com/autosoftoss/autorepo-api/compare/v0.2.2...v0.2.3) (2023-01-04)
+
+
+### Bug Fixes
+
+* checkout before resetting branch during release ([66bde0b](https://github.com/autosoftoss/autorepo-api/commit/66bde0bca708668f7f261897a97b31849a7115dc))
+
+
+
 ## [0.2.2](https://github.com/autosoftoss/autorepo-api/compare/v0.2.0...v0.2.2) (2023-01-04)
 
 
