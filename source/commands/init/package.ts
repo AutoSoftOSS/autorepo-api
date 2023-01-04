@@ -57,13 +57,19 @@ export const initPackage = clee("package")
       });
       pkg.description = description;
     }
-    if(pkg.private === undefined) {
+    let repoIsPrivate = pkg.private;
+    if(repoIsPrivate === undefined) {
       const { private: isPrivate } = await enquirer.prompt<{ private: boolean; }>({
         type: "confirm",
         name: "private",
         message: "Private?"
       });
-      pkg.private = isPrivate;
+      repoIsPrivate = isPrivate;
+      if(options.monorepo === true) {
+        pkg.private = false;
+      } else {
+        pkg.private = repoIsPrivate;
+      }
     }
     // Write package.json
     await structure(options.cwd).files().packageJSON.write({
@@ -72,7 +78,7 @@ export const initPackage = clee("package")
       description: pkg.description,
       main: options.monorepo ? undefined : root.files().auto.files().build.files().index.relative,
       author: typeof pkg.author === "string" ? pkg.author : pkg.author?.name,
-      license: pkg.license ?? (pkg.private ? "UNLICENSED" : "MIT"),
+      license: pkg.license ?? (repoIsPrivate ? "UNLICENSED" : "MIT"),
       private: pkg.private,
       type: options.monorepo ? undefined : "module",
       repository: pkg.repository,
