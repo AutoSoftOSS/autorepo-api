@@ -14,7 +14,8 @@ import {
   deleteBranch,
   commit,
   streamToString,
-  getNextChangelog
+  getNextChangelog,
+  tag
 } from "../utils/index.js";
 
 function getReleaseType() {
@@ -53,18 +54,15 @@ export const release = clee("release")
       // If the current branch is the primary branch, then we should rebase
       const shouldRebase = branch === primary;
       const releaseBranch = `release-${version}`;
-      const tag = `v${version}`;
+      const tagName = `v${version}`;
       await checkout(releaseBranch);
-      await commit([pkg.relative, root.files().changelog.relative], {
-        message: tag,
-        tag
-      });
+      await commit([pkg.relative, root.files().changelog.relative], tagName);
       await push(releaseBranch);
       // Create an Issue for the release
       const issue = await octokit.issues.create({
         owner,
         repo,
-        title: `Release ${tag}`
+        title: `Release ${tagName}`
       });
       // Create a pull request for the release
       const pullRequest = await octokit.pulls.create({
@@ -87,11 +85,12 @@ export const release = clee("release")
         await pull(primary);
         await deleteBranch(releaseBranch);
         // Create a release
+        await tag(tagName);
         await octokit.repos.createRelease({
           owner,
           repo,
-          tag_name: tag,
-          name: tag,
+          tag_name: tagName,
+          name: tagName,
           draft: false,
           prerelease: false,
           body: changes
