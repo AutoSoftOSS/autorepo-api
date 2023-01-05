@@ -12,7 +12,6 @@ import { typecheck } from "./typecheck.js";
 import { release } from "./release.js";
 import { migrate } from "./migrate/index.js";
 
-// @ts-ignore
 export const autorepo = clee("autorepo")
   .title({ font: "slant" })
   .description("Full Auto.")

@@ -11,7 +11,7 @@ export const migrateBranch = clee("branch")
   .action(async (from, to) => {
     await exec("git", ["checkout", from], { silent: true });
     await exec("git", ["branch", "--move", to], { silent: true });
-    await push(to);
+    await push(to, { force: false });
     const pkgJSON = await structure().files().packageJSON.read();
     const { owner, repo } = parseRepositoryURL(pkgJSON?.repository) ?? {};
     if(typeof owner === "string" && typeof repo === "string") {
