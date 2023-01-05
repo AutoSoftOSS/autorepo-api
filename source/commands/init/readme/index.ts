@@ -2,6 +2,7 @@ import clee, { parseString } from "clee";
 import join from "join-newlines";
 import { Repository } from "types-pkg-json";
 import { header } from "./header.js";
+// import { installation } from "./installation.js";
 import { footer } from "./footer.js";
 import { structure } from "../../../structure.js";
 
@@ -24,22 +25,23 @@ async function body(): Promise<boolean[]> {
   const readme = (await structure().files().readme.read()) ?? [];
   let isHeader = false;
   let isFooter = false;
-  return readme.filter((block: { raw: string; }) => {
-    if(block.raw.startsWith("<!-- auto header start -->")) {
-      isHeader = true;
-      return false;
-    } else if(block.raw.startsWith("<!-- auto header end -->")) {
-      isHeader = false;
-      return false;
-    } else if(block.raw.startsWith("<!-- auto footer start -->")) {
-      isFooter = true;
-      return false;
-    } else if(block.raw.startsWith("<!-- auto footer end -->")) {
-      isFooter = false;
-      return false;
-    } else {
-      return !isHeader && !isFooter;
+  return readme.filter((block: { type: string; raw: string; }) => {
+    if(block.type === "html") {
+      if(block.raw.startsWith("<!--BEGIN HEADER-->")) {
+        isHeader = true;
+        return false;
+      } else if(block.raw.startsWith("<!--END HEADER-->")) {
+        isHeader = false;
+        return false;
+      } else if(block.raw.startsWith("<!--BEGIN FOOTER-->")) {
+        isFooter = true;
+        return false;
+      } else if(block.raw.startsWith("<!--END FOOTER-->")) {
+        isFooter = false;
+        return false;
+      }
     }
+    return !isHeader && !isFooter;
   });
 }
 
@@ -50,6 +52,7 @@ export const initReadme = clee("readme")
     const pkg = await root.files().packageJSON.read();
     await root.files().readme.write([
       await header(pkg),
+      // await installation(pkg?.name),
       ...await body(),
       await footer(pkg)
     ]);
