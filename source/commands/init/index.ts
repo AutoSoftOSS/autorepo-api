@@ -3,7 +3,7 @@ import path from "node:path";
 import { structure } from "../../structure.js";
 import { initGit } from "./git.js";
 import { initGitignore } from "./gitignore.js";
-import { initCoveralls } from "./coveralls.js"; 
+import { initCoveralls } from "./coveralls.js";
 import { initRemote } from "./remote.js";
 import { initPackage } from "./package.js";
 import { initSource } from "./source.js";

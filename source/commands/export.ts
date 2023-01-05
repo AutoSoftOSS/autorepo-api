@@ -21,8 +21,7 @@ export const exportPackage = clee("export")
         cwd: pkgDir.path,
         submodule: true,
         namespace: undefined,
-        token: undefined,
-        noSaveToken: undefined
+        token: undefined
       });
     } else {
       throw new Error("Package does not exist.");
