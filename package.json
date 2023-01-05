@@ -31,9 +31,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@autosoft/eslint-config": "^1.0.1",
-    "@autosoft/jest-preset": "^1.0.1",
-    "@autosoft/tsconfig": "^1.0.0",
+    "@autosoft/eslint-config": "^1.0.2",
+    "@autosoft/jest-preset": "^1.0.2",
+    "@autosoft/tsconfig": "^1.0.1",
     "@bconnorwhite/exec": "^6.0.12",
     "@octokit/rest": "^19.0.5",
     "@swc/cli": "^0.1.59",
@@ -49,7 +49,7 @@
     "latest-version": "^7.0.0",
     "mem": "^9.0.2",
     "npm-description": "^1.0.2",
-    "npm-package-json-lint-config-auto": "^1.0.1",
+    "npm-package-json-lint-config-auto": "^1.0.2",
     "package-add": "^2.0.1",
     "package-run": "^2.0.6",
     "semver": "^7.3.8",
@@ -60,11 +60,7 @@
     "which-pm-lockfile": "^1.1.1"
   },
   "devDependencies": {
-    "@autosoft/eslint-config": "^1.0.1",
-    "@autosoft/jest-preset": "^1.0.1",
-    "@autosoft/tsconfig": "^1.0.0",
-    "@types/conventional-changelog": "^3.1.1",
-    "npm-package-json-lint-config-auto": "^1.0.1"
+    "@types/conventional-changelog": "^3.1.1"
   },
   "eslintConfig": {
     "extends": "@autosoft/eslint-config"
