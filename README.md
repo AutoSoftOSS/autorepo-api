@@ -1,4 +1,4 @@
-<!-- auto header start -->
+<!--BEGIN HEADER-->
 <div id="top" align="center">
   <h1>@autosoft/autorepo-api</h1>
   <a href="https://npmjs.com/package/@autosoft/autorepo-api">
@@ -26,8 +26,23 @@ _DM me on [Twitter](https://twitter.com/bconnorwhite) if you have questions or s
 </a>
 
 ---
-<!-- auto header end -->
-<!-- auto footer start -->
+<!--END HEADER-->
+
+## Installation
+
+```sh
+yarn add @autosoft/autorepo-api
+```
+
+```sh
+npm install @autosoft/autorepo-api
+```
+
+```sh
+pnpm add @autosoft/autorepo-api
+```
+
+<!--BEGIN FOOTER-->
 
 <br />
 
@@ -78,4 +93,4 @@ _DM me on [Twitter](https://twitter.com/bconnorwhite) if you have questions or s
 <h2 id="license">License <a href="https://opensource.org/licenses/MIT"><img align="right" alt="license" src="https://img.shields.io/npm/l/@autosoft/autorepo-api.svg"></a></h2>
 
 [MIT](https://opensource.org/licenses/MIT)
-<!-- auto footer end -->
+<!--END FOOTER-->
