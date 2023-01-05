@@ -1,3 +1,29 @@
+## [0.2.4](https://github.com/autosoftoss/autorepo-api/compare/v0.2.3...v0.2.4) (2023-01-05)
+
+
+### Bug Fixes
+
+* fix incorrect init editorconfig command title ([98defa2](https://github.com/autosoftoss/autorepo-api/commit/98defa249a4dc205c8ef16c9905d3baf40841328))
+* fix incorrect init source command name ([c0c6226](https://github.com/autosoftoss/autorepo-api/commit/c0c6226d72640871134922b4b48946f283508c41))
+* only init package.json with packages workspace ([c7ba7bc](https://github.com/autosoftoss/autorepo-api/commit/c7ba7bce6d99392d53548f7d21d37f5aac724962))
+* order bundled dependencies above dependencies on package init ([9de51b0](https://github.com/autosoftoss/autorepo-api/commit/9de51b0b277d9c18d73b5c71dcf4e2f55ea9cf08))
+* push tags as well in push command ([7d51ac9](https://github.com/autosoftoss/autorepo-api/commit/7d51ac9779c96f4af66afb5f3aa35f98964cc526))
+* reorder init commands ([9963978](https://github.com/autosoftoss/autorepo-api/commit/9963978d86dacef0481f52cacb8785056d51a3c6))
+* set private field to true for monorepos ([a0b0837](https://github.com/autosoftoss/autorepo-api/commit/a0b0837f5090e0d171f3edb039fbb6f9b122bc91))
+* stash and pop during release ([0c96241](https://github.com/autosoftoss/autorepo-api/commit/0c962416fea6337f7b867b9a9a4ee89915bec03d))
+* update dependencies ([a1e79d7](https://github.com/autosoftoss/autorepo-api/commit/a1e79d7fd60d774650625f9b75b79c2920341f2c))
+
+
+### Features
+
+* add coveralls badge to README if one exists ([e5c4e67](https://github.com/autosoftoss/autorepo-api/commit/e5c4e67d3388e56ee4d01fca59b4dcf48cc4516e))
+* add force flag for push and release ([4caa1c6](https://github.com/autosoftoss/autorepo-api/commit/4caa1c6bb608abe4ad2c4370f7b84b0ec8d82f05))
+* init coveralls ([602e4e5](https://github.com/autosoftoss/autorepo-api/commit/602e4e5a84964acc14d84ac3f27830db880331e0))
+* install autorepo on init package ([4657f07](https://github.com/autosoftoss/autorepo-api/commit/4657f0770b66d0ea403d1a690a798c18f3d057d5))
+* update dependencies command ([5468eb2](https://github.com/autosoftoss/autorepo-api/commit/5468eb20a77323b54dbb982d51fe1a99711d6bb4))
+
+
+
 ## [0.2.3](https://github.com/autosoftoss/autorepo-api/compare/v0.2.2...v0.2.3) (2023-01-04)
 
 
