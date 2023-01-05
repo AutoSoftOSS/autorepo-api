@@ -3,6 +3,7 @@ import path from "node:path";
 import { structure } from "../../structure.js";
 import { initGit } from "./git.js";
 import { initGitignore } from "./gitignore.js";
+import { initCoveralls } from "./coveralls.js"; 
 import { initRemote } from "./remote.js";
 import { initPackage } from "./package.js";
 import { initSource } from "./source.js";
@@ -17,6 +18,7 @@ import { initChangelog } from "./changelog.js";
 export const init = clee("init")
   .description("Initialize a new project")
   .command(initChangelog)
+  .command(initCoveralls)
   .command(initEditorconfig)
   .command(initGit)
   .command(initGitignore)
@@ -54,6 +56,7 @@ export const init = clee("init")
       await initTurbo({ cwd: options.cwd });
     } else {
       await Promise.all([
+        initCoveralls({ cwd: options.cwd }),
         initSource({ cwd: options.cwd }),
         initTSConfig({ cwd: options.cwd })
         // initTest({ cwd: options.cwd }),

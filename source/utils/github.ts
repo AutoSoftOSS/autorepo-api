@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest";
 import mem from "mem";
-import Conf from "conf";
 import enquirer from "enquirer";
+import { getConf } from "./conf.js";
 
 type Scope = "org" | "user";
 
@@ -32,7 +32,7 @@ export async function createRepo(scope: string, options: GithubRepoOptions, octo
 }
 
 const getGitHubToken = mem(async (namespace?: string) => {
-  const config = new Conf({ projectName: "autorepo" });
+  const config = getConf();
   const answers = await enquirer.prompt<{ gitHubToken: string; }>({
     type: "input",
     name: "gitHubToken",

@@ -113,7 +113,6 @@ export const release = clee("release")
           sha: merge.data.sha,
           state: "success"
         });
-        // TODO: send to Coveralls
         // Close the issue
         await octokit.issues.update({
           owner,

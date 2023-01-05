@@ -54,3 +54,4 @@ export async function streamToString(readStream: Readable) {
 export * from "./github.js";
 export * from "./git.js";
 export * from "./changelog.js";
+export * from "./coveralls.js";
