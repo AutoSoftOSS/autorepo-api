@@ -1,3 +1,12 @@
+## [0.2.5](https://github.com/autosoftoss/autorepo-api/compare/v0.2.4...v0.2.5) (2023-01-05)
+
+
+### Bug Fixes
+
+* clean up type issues ([d0e78a2](https://github.com/autosoftoss/autorepo-api/commit/d0e78a2fd4945c40675feea5f8360c0d036700b9))
+
+
+
 ## [0.2.4](https://github.com/autosoftoss/autorepo-api/compare/v0.2.3...v0.2.4) (2023-01-05)
 
 
