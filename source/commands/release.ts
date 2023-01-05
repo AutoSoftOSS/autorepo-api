@@ -49,6 +49,7 @@ export const release = clee("release")
   .description("Bump the version, update the changelog, commit, and tag")
   .option("-c", "--cwd", "[path]", "Path to root of the package", parseString)
   .option("-s", "--stable", "Bump to 1.0.0")
+  .option("-f", "--force", "Force the release")
   .action(async (options) => {
     const root = structure(options.cwd);
     const pkg = structure(options.cwd).files().packageJSON;
@@ -68,7 +69,7 @@ export const release = clee("release")
       const tagName = `v${version}`;
       await checkout(releaseBranch);
       await commit([pkg.relative, root.files().changelog.relative], tagName);
-      await push(releaseBranch);
+      await push(releaseBranch, { force: options.force });
       // Create an Issue for the release
       const issue = await octokit.issues.create({
         owner,
