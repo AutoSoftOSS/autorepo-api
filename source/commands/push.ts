@@ -4,8 +4,9 @@ import { getCurrentBranch } from "../utils/git.js";
 
 export const push = clee("push")
   .argument("[branch]", "Branch to push")
-  .action(async (branch) => {
+  .option("-f", "--force", "Force the push")
+  .action(async (branch, options) => {
     const target = branch ?? await getCurrentBranch();
-    await exec("git", ["push", "--set-upstream", "origin", target], { silent: true });
+    await exec("git", ["push", "--set-upstream", { force: options.force }, "origin", target], { silent: true });
     await exec("git", ["push", "--tags"], { silent: true });
   });
