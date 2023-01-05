@@ -1,6 +1,7 @@
 import { PackageJSON } from "file-structure";
 import join from "join-newlines";
 import { spacer, getGitHubName } from "./index.js";
+import { getCoveralls, getTwitter, getPrimaryBranch } from "../../../utils/index.js";
 
 function tab(string?: string, count = 1) {
   return string ? string.split("\n").map((line) => `${"  ".repeat(count)}${line}`).join("\n") : undefined;
@@ -30,12 +31,26 @@ function gitHubLanguages(gitHubName?: string) {
   }
 }
 
-function headerTop(packageName?: string, gitHubName?: string) {
+function coverallsBadge(gitHubName?: string, branch?: string) {
+  if(gitHubName) {
+    const query = branch ? `?branch=${branch}` : "";
+    return join([
+      `<a href="https://coveralls.io/github/${gitHubName}${query}">`,
+      tab(`<img alt="Coveralls Status" src="https://img.shields.io/coveralls/github/${gitHubName}.svg$${query}">`),
+      "</a>"
+    ]);
+  } else {
+    return undefined;
+  }
+}
+
+function headerTop(packageName?: string, gitHubName?: string, branch?: string, hasCoveralls = false) {
   return join([
     "<div id=\"top\" align=\"center\">",
     packageName ? tab(`<h1>${packageName}</h1>`) : undefined,
     tab(npmVersion(packageName)),
     tab(gitHubLanguages(gitHubName)),
+    hasCoveralls ? tab(coverallsBadge(gitHubName, branch)) : undefined,
     "</div>",
     spacer
   ]);
@@ -80,15 +95,23 @@ function twitterHandle(twitter?: string) {
   }
 }
 
-export function header(pkg?: PackageJSON, isPrivate?: boolean, twitter?: string) {
+export async function header(pkg?: PackageJSON) {
   const gitHubName = getGitHubName(pkg?.repository);
+  const [namespace, repo] = gitHubName?.split("/") ?? [];
+  const twitter = pkg?.private !== true ? await getTwitter(namespace) : undefined;
+  const coveralls = pkg?.private !== true ? await getCoveralls() : undefined;
+  const primaryBranch = await getPrimaryBranch();
+  let hasCoveralls = false;
+  if(namespace && repo) {
+    hasCoveralls = Boolean(await coveralls?.getRepo("github", namespace, repo));
+  }
   return {
     raw: join([
       "<!-- auto header start -->",
-      headerTop(pkg?.name, gitHubName),
+      headerTop(pkg?.name, gitHubName, primaryBranch, hasCoveralls),
       description(pkg?.description),
-      isPrivate !== true ? gitHubStars(gitHubName) : undefined,
-      isPrivate !== true ? twitterHandle(twitter) : undefined,
+      pkg?.private !== true ? gitHubStars(gitHubName) : undefined,
+      twitterHandle(twitter),
       "---",
       "<!-- auto header end -->"
     ], true)

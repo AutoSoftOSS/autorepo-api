@@ -1,5 +1,4 @@
 import clee, { parseString } from "clee";
-import enquirer from "enquirer";
 import join from "join-newlines";
 import { Repository } from "types-pkg-json";
 import { header } from "./header.js";
@@ -21,7 +20,7 @@ export function getGitHubName(repo?: Repository) {
   }
 }
 
-async function body() {
+async function body(): Promise<boolean[]> {
   const readme = (await structure().files().readme.read()) ?? [];
   let isHeader = false;
   let isFooter = false;
@@ -49,19 +48,8 @@ export const initReadme = clee("readme")
   .action(async (options) => {
     const root = structure(options.cwd);
     const pkg = await root.files().packageJSON.read();
-    const gitHubName = getGitHubName(pkg?.repository)?.split("/")[0];
-    let twitterHandle;
-    if(pkg?.private !== true) {
-      const { twitter } = await enquirer.prompt<{ twitter?: string; }>({
-        type: "input",
-        name: "twitter",
-        message: "Twitter handle?",
-        default: gitHubName
-      } as any).catch(() => ({ twitter: undefined }));
-      twitterHandle = twitter;
-    }
     await root.files().readme.write([
-      header(pkg, pkg?.private, twitterHandle),
+      await header(pkg),
       ...await body(),
       await footer(pkg)
     ]);
