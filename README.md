@@ -42,14 +42,19 @@ _DM me on [Twitter](https://twitter.com/bconnorwhite) if you have questions or s
 - [@swc/core](https://www.npmjs.com/package/@swc/core): Super-fast alternative for babel
 - [clee](https://www.npmjs.com/package/clee): Create CLI applications with glee 🎉
 - [conf](https://www.npmjs.com/package/conf): Simple config handling for your app or module
+- [conventional-changelog](https://www.npmjs.com/package/conventional-changelog): Generate a changelog from git metadata
+- [conventional-recommended-bump](https://www.npmjs.com/package/conventional-recommended-bump): Get a recommended version bump based on conventional commits
+- [coveralls-api](https://www.npmjs.com/package/coveralls-api): API client for coveralls.io
 - [enquirer](https://www.npmjs.com/package/enquirer): Stylish, intuitive and user-friendly prompt system. Fast and lightweight enough for small projects, powerful and extensible enough for the most advanced use cases.
 - [file-structure](https://www.npmjs.com/package/file-structure): Define and manage file structures
 - [join-newlines](https://www.npmjs.com/package/join-newlines): Join an array of strings with newlines
+- [latest-version](https://www.npmjs.com/package/latest-version): Get the latest version of an npm package
 - [mem](https://www.npmjs.com/package/mem): Memoize functions - An optimization used to speed up consecutive function calls by caching the result of calls with identical input
 - [npm-description](https://www.npmjs.com/package/npm-description): Fetch a package's description from NPM
 - [npm-package-json-lint-config-auto](https://www.npmjs.com/package/npm-package-json-lint-config-auto): NPM Package.json Lint Config
 - [package-add](https://www.npmjs.com/package/package-add): Programmatically install packages. Supports yarn, npm, and pnpm.
 - [package-run](https://www.npmjs.com/package/package-run): Node API for running package.json scripts
+- [semver](https://www.npmjs.com/package/semver): The semantic version parser used by npm.
 - [spdx-license](https://www.npmjs.com/package/spdx-license): Get SPDX license information
 - [tsd](https://www.npmjs.com/package/tsd): Check TypeScript type definitions
 - [turbo](https://www.npmjs.com/package/turbo): Turborepo is a high-performance build system for JavaScript and TypeScript codebases.
@@ -64,6 +69,7 @@ _DM me on [Twitter](https://twitter.com/bconnorwhite) if you have questions or s
 - [@autosoft/eslint-config](https://www.npmjs.com/package/@autosoft/eslint-config): A base for projects that use ESLint.
 - [@autosoft/jest-preset](https://www.npmjs.com/package/@autosoft/jest-preset): A base for projects that use Jest.
 - [@autosoft/tsconfig](https://www.npmjs.com/package/@autosoft/tsconfig): A base for TypeScript projects.
+- [@types/conventional-changelog](https://www.npmjs.com/package/@types/conventional-changelog): TypeScript definitions for conventional-changelog
 - [npm-package-json-lint-config-auto](https://www.npmjs.com/package/npm-package-json-lint-config-auto): NPM Package.json Lint Config
 
 
