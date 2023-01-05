@@ -107,13 +107,13 @@ export async function header(pkg?: PackageJSON) {
   }
   return {
     raw: join([
-      "<!-- auto header start -->",
+      "<!--BEGIN HEADER-->",
       headerTop(pkg?.name, gitHubName, primaryBranch, hasCoveralls),
       description(pkg?.description),
       pkg?.private !== true ? gitHubStars(gitHubName) : undefined,
       twitterHandle(twitter),
       "---",
-      "<!-- auto header end -->"
+      "<!--END HEADER-->"
     ], true)
   };
 }

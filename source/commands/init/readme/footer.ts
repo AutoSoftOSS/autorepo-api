@@ -87,12 +87,12 @@ export async function footer(pkg?: PackageJSON) {
   const peerDependencies = await getPeerDependencies(gitHubName, pkg?.peerDependencies, dependencies === undefined && devDependencies === undefined);
   return {
     raw: join([
-      "<!-- auto footer start -->",
+      "<!--BEGIN FOOTER-->",
       dependencies,
       devDependencies,
       peerDependencies,
       await getLicense(pkg?.name, pkg?.license),
-      "<!-- auto footer end -->"
+      "<!--END FOOTER-->"
     ])
   };
 }
