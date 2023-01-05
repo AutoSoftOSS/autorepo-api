@@ -1,4 +1,4 @@
-import { exec, execAllSeries } from "@bconnorwhite/exec";
+import { exec } from "@bconnorwhite/exec";
 
 export async function getCurrentBranch() {
   return exec("git", ["branch", "--show-current"], { silent: true }).then(({ textOutput }) => {
@@ -14,19 +14,16 @@ export async function getPrimaryBranch() {
 }
 
 export async function checkout(branch: string) {
-  await execAllSeries([{
-    command: "git",
-    args: ["branch", branch]
-  }, {
-    command: "git",
-    args: ["checkout", branch]
-  }], { silent: true });
+  await exec("git", ["branch", branch], { silent: true });
+  await exec("git", ["checkout", branch], { silent: true });
 }
 
 export async function pull(branch: string) {
+  await exec("git", ["stash"], { silent: true });
   await checkout(branch);
   await exec("git", ["reset", "--soft", `origin/${branch}`], { silent: true });
   await exec("git", ["pull", "--set-upstream", "origin", branch]);
+  await exec("git", ["stash", "pop"], { silent: true });
 }
 
 export async function deleteBranch(branch: string) {
