@@ -101,8 +101,8 @@ export const initPackage = clee("package")
         build: "auto build",
         dev: "auto dev",
         lint: "auto lint",
-        release: "auto release",
         prepack: "yarn build",
+        release: "auto release",
         test: "auto test",
         typecheck: "auto typecheck"
       },
