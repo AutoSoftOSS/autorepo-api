@@ -37,7 +37,7 @@ export async function installation(packageName?: string) {
           "<!-- auto installation end -->",
           ""
         ])
-      }
+      };
     } else {
       return undefined;
     }

@@ -1,5 +1,5 @@
 import clee, { parseString } from "clee";
-import latestVersion from "latest-version";
+import getLatestVersion from "latest-version";
 import install from "package-add";
 import { minVersion } from "semver";
 import { structure } from "../../structure.js";
@@ -24,7 +24,7 @@ export const updateDependencies = clee("dependencies")
       const dependencies = json?.[type] ?? {};
       const promises = Object.entries(dependencies).map(async ([packageName, version]) => {
         // check most recent version on NPM
-        return latestVersion(packageName, { version }).then((latestVersion) => {
+        return getLatestVersion(packageName, { version }).then((latestVersion) => {
           return {
             packageName,
             currentVersion: version,
