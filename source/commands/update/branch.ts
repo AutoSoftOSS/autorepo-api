@@ -4,8 +4,8 @@ import { structure } from "../../structure.js";
 import { parseRepositoryURL, getOctoKit } from "../../utils/index.js";
 import { push } from "../push.js";
 
-export const migrateBranch = clee("branch")
-  .description("Migrate a branch")
+export const updateBranch = clee("branch")
+  .description("Rename a branch, locally and remotely")
   .argument("<from>")
   .argument("<to>")
   .action(async (from, to) => {

@@ -10,7 +10,6 @@ import { lint } from "./lint/index.js";
 import { test } from "./test/index.js";
 import { typecheck } from "./typecheck.js";
 import { release } from "./release.js";
-import { migrate } from "./migrate/index.js";
 
 export const autorepo = clee("autorepo")
   .title({ font: "slant" })
@@ -19,7 +18,6 @@ export const autorepo = clee("autorepo")
   .command(create)
   .command(importPackage)
   .command(exportPackage)
-  .command(migrate)
   .command(update)
   .command(build)
   .command(dev)
@@ -37,6 +35,5 @@ export * from "./dev.js";
 export * from "./lint/index.js";
 export * from "./test/index.js";
 export * from "./typecheck.js";
-export * from "./migrate/index.js";
 export * from "./release.js";
 export * from "./update/index.js";
