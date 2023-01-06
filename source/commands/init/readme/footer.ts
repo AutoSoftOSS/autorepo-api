@@ -21,7 +21,7 @@ function getDependencies(packageName?: string, gitHubName?: string, packages?: D
         `<h2 id="dependencies">Dependencies<a href="https://www.npmjs.com/package/${packageName}?activeTab=dependencies"><img align="right" alt="dependencies" src="https://img.shields.io/librariesio/release/npm/${packageName}.svg"></a></h2>`,
         "",
         list
-      ]);
+      ], false);
     });
   } else {
     return undefined;
