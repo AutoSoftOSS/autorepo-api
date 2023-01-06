@@ -28,6 +28,7 @@
     "dev": "ts-node-esm ./scripts/dev.ts",
     "lint": "eslint source --ext .ts",
     "prepack": "yarn build",
+    "release": "yarn dev release",
     "test": "jest"
   },
   "dependencies": {
