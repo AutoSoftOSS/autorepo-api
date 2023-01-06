@@ -1,3 +1,20 @@
+## [0.2.6](https://github.com/autosoftoss/autorepo-api/compare/v0.2.5...v0.2.6) (2023-01-06)
+
+
+### Bug Fixes
+
+* Bump @autosoft/jest-preset ([1b69898](https://github.com/autosoftoss/autorepo-api/commit/1b6989878ce30ace92049091af044506bb355779))
+* Fix typo when generating coveralls README badge ([5641498](https://github.com/autosoftoss/autorepo-api/commit/56414984ab13d9c2b40f61f6fb80ddbbf1a5c45c))
+* Include period in README description ([545635b](https://github.com/autosoftoss/autorepo-api/commit/545635b3156001adf45f8f20feab8685bac97326))
+
+
+### Features
+
+* Added the open command ([f813a2a](https://github.com/autosoftoss/autorepo-api/commit/f813a2aee30637908faf30b70c8a43eafd29830f))
+* Include release script when initializing package.json ([27931e6](https://github.com/autosoftoss/autorepo-api/commit/27931e6690156718abefc21a2a63ed4a603af479))
+
+
+
 ## [0.2.5](https://github.com/autosoftoss/autorepo-api/compare/v0.2.4...v0.2.5) (2023-01-05)
 
 
