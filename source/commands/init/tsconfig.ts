@@ -16,10 +16,6 @@ export const initTSConfig = clee("tsconfig")
         outDir: buildDir.relative,
         rootDirs: [
           sourceDir.relative
-        ],
-        typeRoots: [
-          "node_modules/@types",
-          "types"
         ]
       },
       files: [
