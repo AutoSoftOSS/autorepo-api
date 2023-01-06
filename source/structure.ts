@@ -4,7 +4,7 @@ export const structure = (path = ".") => root(path, {
   auto: directory(".auto", {
     build: directory("build", {
       index: file("index.js"),
-      indexD: file("index.d.js")
+      indexD: file("index.d.ts")
     }),
     coverage: directory("coverage")
   }),
