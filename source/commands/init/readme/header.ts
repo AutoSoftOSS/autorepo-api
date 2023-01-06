@@ -7,6 +7,10 @@ function tab(string?: string, count = 1) {
   return string ? string.split("\n").map((line) => `${"  ".repeat(count)}${line}`).join("\n") : undefined;
 }
 
+function punctuate(string: string) {
+  return string.endsWith(".") ? string : `${string}.`;
+}
+
 function npmVersion(packageName?: string) {
   if(packageName) {
     return join([
@@ -59,7 +63,7 @@ function headerTop(packageName?: string, gitHubName?: string, branch?: string, h
 function description(packageDescription?: string) {
   if(packageDescription) {
     return join([
-      `<blockquote align="center">${packageDescription}</blockquote>`,
+      `<blockquote align="center">${punctuate(packageDescription)}</blockquote>`,
       spacer
     ]);
   } else {
