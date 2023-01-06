@@ -1,3 +1,19 @@
+## [0.2.7](https://github.com/autosoftoss/autorepo-api/compare/v0.2.6...v0.2.7) (2023-01-06)
+
+
+### Bug Fixes
+
+* bump dependencies ([e2f85d4](https://github.com/autosoftoss/autorepo-api/commit/e2f85d4e26f6d1aba8c2a1d1da8bd761762987dc))
+* package scripts not initialized in the correct order ([cfc1118](https://github.com/autosoftoss/autorepo-api/commit/cfc1118ae5e8757a068e079e3f2f6baecee3ad75))
+* remove extra newline at end of dependency lists ([284fcc7](https://github.com/autosoftoss/autorepo-api/commit/284fcc7525cd19c95379b3e4b078fe565e678663))
+
+
+### Features
+
+* Open repo issues and releases ([0f0cb81](https://github.com/autosoftoss/autorepo-api/commit/0f0cb8125959cdfe53e5c265819898a3847935c3))
+
+
+
 ## [0.2.6](https://github.com/autosoftoss/autorepo-api/compare/v0.2.5...v0.2.6) (2023-01-06)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@autosoft/autorepo-api",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "API for Autorepo.",
   "main": ".auto/build/index.js",
   "author": "Connor White",
