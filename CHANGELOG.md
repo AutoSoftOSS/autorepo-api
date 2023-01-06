@@ -1,3 +1,13 @@
+## [0.2.8](https://github.com/autosoftoss/autorepo-api/compare/v0.2.7...v0.2.8) (2023-01-06)
+
+
+### Bug Fixes
+
+* remove typeRoots from tsconfig init ([8017e94](https://github.com/autosoftoss/autorepo-api/commit/8017e94be3812ad2ea58af23fc03f78f27f9859a))
+* update package-run ([65e65ef](https://github.com/autosoftoss/autorepo-api/commit/65e65efc5237ebb775d5b20902cddb6827903d84))
+
+
+
 ## [0.2.7](https://github.com/autosoftoss/autorepo-api/compare/v0.2.6...v0.2.7) (2023-01-06)
 
 
