@@ -36,7 +36,7 @@ function coverallsBadge(gitHubName?: string, branch?: string) {
     const query = branch ? `?branch=${branch}` : "";
     return join([
       `<a href="https://coveralls.io/github/${gitHubName}${query}">`,
-      tab(`<img alt="Coveralls Status" src="https://img.shields.io/coveralls/github/${gitHubName}.svg$${query}">`),
+      tab(`<img alt="Coveralls Status" src="https://img.shields.io/coveralls/github/${gitHubName}.svg${query}">`),
       "</a>"
     ]);
   } else {
