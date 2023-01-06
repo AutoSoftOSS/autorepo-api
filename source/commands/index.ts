@@ -7,6 +7,7 @@ import { importPackage } from "./import.js";
 import { create } from "./create.js";
 import { dev } from "./dev.js";
 import { lint } from "./lint/index.js";
+import { open } from "./open/index.js";
 import { test } from "./test/index.js";
 import { typecheck } from "./typecheck.js";
 import { release } from "./release.js";
@@ -18,6 +19,7 @@ export const autorepo = clee("autorepo")
   .command(create)
   .command(importPackage)
   .command(exportPackage)
+  .command(open)
   .command(update)
   .command(build)
   .command(dev)

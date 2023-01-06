@@ -1,6 +1,14 @@
 import { Readable } from "node:stream";
 import { Repository } from "types-pkg-json";
 
+export function getNPMURL(name?: string) {
+  if(name) {
+    return `https://www.npmjs.com/package/${name}`;
+  } else {
+    return undefined;
+  }
+}
+
 /**
  * Parse a package name and org from a full name  
  * Example format: `@org/package-name`
@@ -13,9 +21,14 @@ export function parsePackageName(name?: string) {
   };
 }
 
-export function parseRepositoryURL(repository?: Repository) {
+export function getRepositoryURL(repository?: Repository) {
   const url = typeof repository === "string" ? repository : repository?.url;
-  const split = url?.replace(".git", "").split("/").reverse() ?? [];
+  return url?.replace("git+", "").replace(".git", "");
+}
+
+export function parseRepositoryURL(repository?: Repository) {
+  const url = getRepositoryURL(repository);
+  const split = url?.split("/").reverse() ?? [];
   if(split.length > 2) {
     return {
       owner: split[1],
