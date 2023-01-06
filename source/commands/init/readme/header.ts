@@ -15,7 +15,7 @@ function npmVersion(packageName?: string) {
   if(packageName) {
     return join([
       `<a href="https://npmjs.com/package/${packageName}">`,
-      tab(`<img alt="npm" src="https://img.shields.io/npm/v/${packageName}.svg">`),
+      tab(`<img alt="NPM" src="https://img.shields.io/npm/v/${packageName}.svg">`),
       "</a>"
     ]);
   } else {
@@ -27,7 +27,7 @@ function gitHubLanguages(gitHubName?: string) {
   if(gitHubName) {
     return join([
       `<a href="https://github.com/${gitHubName}">`,
-      tab(`<img alt="typescript" src="https://img.shields.io/github/languages/top/${gitHubName}.svg">`),
+      tab(`<img alt="TypeScript" src="https://img.shields.io/github/languages/top/${gitHubName}.svg">`),
       "</a>"
     ]);
   } else {
@@ -40,7 +40,7 @@ function coverallsBadge(gitHubName?: string, branch?: string) {
     const query = branch ? `?branch=${branch}` : "";
     return join([
       `<a href="https://coveralls.io/github/${gitHubName}${query}">`,
-      tab(`<img alt="Coveralls Status" src="https://img.shields.io/coveralls/github/${gitHubName}.svg${query}">`),
+      tab(`<img alt="Coverage Status" src="https://img.shields.io/coveralls/github/${gitHubName}.svg${query}">`),
       "</a>"
     ]);
   } else {
@@ -90,7 +90,7 @@ function twitterHandle(twitter?: string) {
     return join([
       `_DM me on [Twitter](https://twitter.com/${twitter}) if you have questions or suggestions._`,
       `<a href="https://twitter.com/${twitter}">`,
-      tab(`<img align="right" alt="Twitter Follow" src="https://img.shields.io/twitter/url?label=%40${twitter}&style=social&url=https%3A%2F%2Ftwitter.com%2F${twitter}">`),
+      tab(`<img align="right" alt="Twitter" src="https://img.shields.io/twitter/url?label=%40${twitter}&style=social&url=https%3A%2F%2Ftwitter.com%2F${twitter}">`),
       "</a>",
       ""
     ]);

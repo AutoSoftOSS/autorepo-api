@@ -4,7 +4,7 @@ import run from "package-run";
 export const testTypes = clee("types")
   .description("Test types with tsd")
   .action(async () => {
-    return (run as unknown as { default: typeof run }).default({
+    return run({
       command: "tsd",
       silent: true
     }, {

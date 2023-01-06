@@ -6,7 +6,7 @@ export const lintSource = clee("source")
   .description("Lint source files with ESLint")
   .option("-f", "--fix", "Fix errors automatically")
   .action(async (options) => {
-    (run as unknown as { default: typeof run }).default({
+    run({
       command: "eslint",
       args: [
         structure().files().source.relative, {

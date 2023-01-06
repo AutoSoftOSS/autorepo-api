@@ -3,7 +3,7 @@ import run from "package-run";
 
 export const typecheck = clee("typecheck")
   .action(async () => {
-    await (run as unknown as { default: typeof run }).default({
+    await run({
       command: "tsc",
       args: [{
         noEmit: true

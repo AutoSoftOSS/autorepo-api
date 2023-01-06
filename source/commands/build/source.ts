@@ -8,7 +8,7 @@ export const buildSource = clee("source")
   .option("-c", "--cjs", "Output in CommonJS format")
   .action(async (options) => {
     const outputFormat = options.cjs === true ? "cjs" : "esm";
-    await (run as unknown as { default: typeof run }).default({
+    await run({
       command: "swc",
       args: [structure().files().source.name, {
         "config-file": join(new URL(import.meta.url).pathname, `../../../config/${outputFormat}.swcrc`),

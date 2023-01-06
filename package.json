@@ -55,7 +55,7 @@
     "open": "^8.4.0",
     "open-editor": "^4.0.0",
     "package-add": "^2.0.2",
-    "package-run": "^2.0.6",
+    "package-run": "^3.0.0",
     "semver": "^7.3.8",
     "spdx-license": "^1.0.2",
     "tsd": "^0.25.0",

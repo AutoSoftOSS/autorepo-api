@@ -6,7 +6,7 @@ export const dev = clee("dev")
   .description("Run the project directly, without building")
   .argument("[path]", "Path to file to run")
   .action(async (path) => {
-    (run as unknown as { default: typeof run }).default({
+    run({
       command: "ts-node-esm",
       args: [path ?? structure().files().source.files().bin.files().index.relative]
     });
