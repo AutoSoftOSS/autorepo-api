@@ -1,3 +1,19 @@
+## [0.2.9](https://github.com/autosoftoss/autorepo-api/compare/v0.2.8...v0.2.9) (2023-01-07)
+
+
+### Bug Fixes
+
+* bump @autosoft/jest-preset ([d10d198](https://github.com/autosoftoss/autorepo-api/commit/d10d1980e2b6fb2d6065f38d0c1d5a601e4606f3))
+* switch from angular to conventionalcommits ([d2e232b](https://github.com/autosoftoss/autorepo-api/commit/d2e232bad74284e85b1e860f9f05875f0d492045))
+* use correct extension for build types path ([3c3b5b9](https://github.com/autosoftoss/autorepo-api/commit/3c3b5b9292d2772f32217576bc961a88a27e0f4f))
+
+
+### Features
+
+* add release type command ([628dd57](https://github.com/autosoftoss/autorepo-api/commit/628dd5749d2a74b4b9ca8938f58c13158af5b977))
+
+
+
 ## [0.2.8](https://github.com/autosoftoss/autorepo-api/compare/v0.2.7...v0.2.8) (2023-01-06)
 
 
