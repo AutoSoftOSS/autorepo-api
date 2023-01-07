@@ -1,9 +1,9 @@
 import clee, { parseString } from "clee";
-import conventionalRecommendedBump from "conventional-recommended-bump";
 import { inc as increment } from "semver";
-import { updateChangelog } from "./update/changelog.js";
-import { push } from "./push.js";
-import { structure } from "../structure.js";
+import { updateChangelog } from "../update/changelog.js";
+import { releaseType } from "./type.js";
+import { push } from "../push.js";
+import { structure } from "../../structure.js";
 import {
   getOctoKit,
   parseRepositoryURL,
@@ -17,36 +17,25 @@ import {
   getNextChangelog,
   tag,
   getChangelogSegmentBody
-} from "../utils/index.js";
-
-function getReleaseType() {
-  return new Promise<conventionalRecommendedBump.Callback.Recommendation.ReleaseType>((resolve, reject) => {
-    conventionalRecommendedBump({ preset: "conventionalcommits" }, (error, { releaseType }) => {
-      if(error) {
-        reject(error);
-      } else {
-        resolve(releaseType ?? "patch");
-      }
-    });
-  });
-}
+} from "../../utils/index.js";
 
 async function getNextVersion(currentVersion: string, stable = false) {
-  let releaseType = await getReleaseType();
+  let type = await releaseType();
   if(currentVersion.startsWith("0.")) {
     if(stable) {
       return "1.0.0";
-    } else if(releaseType === "major") {
-      releaseType = "minor";
-    } else if(releaseType === "minor") {
-      releaseType = "patch";
+    } else if(type === "major") {
+      type = "minor";
+    } else if(type === "minor") {
+      type = "patch";
     }
   }
-  return increment(currentVersion, releaseType) ?? currentVersion;
+  return increment(currentVersion, type) ?? currentVersion;
 }
 
 export const release = clee("release")
   .description("Bump the version, update the changelog, commit, and tag")
+  .command(releaseType)
   .option("-c", "--cwd", "[path]", "Path to root of the package", parseString)
   .option("-s", "--stable", "Bump to 1.0.0")
   .option("-f", "--force", "Force the release")

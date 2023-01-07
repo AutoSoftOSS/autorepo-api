@@ -10,7 +10,7 @@ import { lint } from "./lint/index.js";
 import { open } from "./open/index.js";
 import { test } from "./test/index.js";
 import { typecheck } from "./typecheck.js";
-import { release } from "./release.js";
+import { release } from "./release/index.js";
 
 export const autorepo = clee("autorepo")
   .title({ font: "slant" })
@@ -37,5 +37,5 @@ export * from "./dev.js";
 export * from "./lint/index.js";
 export * from "./test/index.js";
 export * from "./typecheck.js";
-export * from "./release.js";
+export * from "./release/index.js";
 export * from "./update/index.js";
