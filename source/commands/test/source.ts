@@ -13,6 +13,9 @@ export const testSource = clee("source")
         passWithNoTests: true,
         silent: options?.debug !== true,
         testPathPattern: path === undefined ? structure().files().test.relative : undefined
-      }, ...(path !== undefined ? [path] : [])]
+      }, ...(path !== undefined ? [path] : [])],
+      env: {
+        NODE_OPTIONS: "--experimental-vm-modules --no-warnings"
+      }
     });
   });
