@@ -10,7 +10,9 @@ export const testTypes = clee("types")
     }, {
       silent: true
     }).then((result) => {
-      if(!result.textError.startsWith("The test file") || !result.textError.includes("does not exist in") || !result.textError.includes("Create one and try again.")) {
+      if(result.textError && (
+        !result.textError.startsWith("The test file") || !result.textError.includes("does not exist in") || !result.textError.includes("Create one and try again.")
+      )) {
         return new Error(result.error);
       } else {
         return undefined;
