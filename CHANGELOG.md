@@ -1,3 +1,14 @@
+## [0.2.10](https://github.com/autosoftoss/autorepo-api/compare/v0.2.9...v0.2.10) (2023-01-07)
+
+
+### Bug Fixes
+
+* add node flag for jest ([047a27f](https://github.com/autosoftoss/autorepo-api/commit/047a27ff7092b382428934f2d02e5c0263eb64ad))
+* bump jest preset ([fc5d73f](https://github.com/autosoftoss/autorepo-api/commit/fc5d73f8fd23f2a5c43f197dbac0de97f6d16134))
+* prevent test types from throwing an error when succeeding ([db4585f](https://github.com/autosoftoss/autorepo-api/commit/db4585f0e801dbd28c6918a9ded6782c33726085))
+
+
+
 ## [0.2.9](https://github.com/autosoftoss/autorepo-api/compare/v0.2.8...v0.2.9) (2023-01-07)
 
 
