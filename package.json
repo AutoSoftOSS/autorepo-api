@@ -28,8 +28,7 @@
     "dev": "ts-node-esm ./scripts/dev.ts",
     "lint": "eslint source --ext .ts",
     "prepack": "yarn build",
-    "release": "yarn dev release",
-    "test": "jest"
+    "release": "yarn dev release"
   },
   "dependencies": {
     "@autosoft/eslint-config": "^1.0.2",
