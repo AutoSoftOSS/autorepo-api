@@ -1,6 +1,7 @@
 import clee from "clee";
 import { join } from "node:path";
 import run from "package-run";
+import { autobin } from "autobin";
 import { structure } from "../../structure.js";
 
 export const buildSource = clee("source")
@@ -17,4 +18,5 @@ export const buildSource = clee("source")
         "out-dir": structure().files().auto.files().build.relative
       }]
     });
+    await autobin({ hashbang: undefined });
   });
