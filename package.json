@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@autosoft/eslint-config": "^1.0.2",
-    "@autosoft/jest-preset": "^1.0.4",
+    "@autosoft/jest-preset": "^1.0.5",
     "@autosoft/tsconfig": "^1.0.1",
     "@bconnorwhite/exec": "^6.0.12",
     "@octokit/rest": "^19.0.5",
