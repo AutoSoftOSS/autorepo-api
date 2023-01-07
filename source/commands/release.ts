@@ -21,7 +21,7 @@ import {
 
 function getReleaseType() {
   return new Promise<conventionalRecommendedBump.Callback.Recommendation.ReleaseType>((resolve, reject) => {
-    conventionalRecommendedBump({ preset: "angular" }, (error, { releaseType }) => {
+    conventionalRecommendedBump({ preset: "conventionalcommits" }, (error, { releaseType }) => {
       if(error) {
         reject(error);
       } else {
