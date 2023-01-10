@@ -1,3 +1,24 @@
+## [0.2.11](https://github.com/autosoftoss/autorepo-api/compare/v0.2.10...v0.2.11) (2023-01-10)
+
+
+### Bug Fixes
+
+* add description for update command ([1a67292](https://github.com/autosoftoss/autorepo-api/commit/1a672928cd16e024d23f8d7a8cbdd3c130bb76e7))
+* await on init gitignore ([1567e53](https://github.com/autosoftoss/autorepo-api/commit/1567e53500d1f18f554bbcad2acedfada2c0ed03))
+* check if package exists before importing ([453d181](https://github.com/autosoftoss/autorepo-api/commit/453d18127fe478e0478f390fc2d9221e53602b14))
+* update command descriptions ([826b6a3](https://github.com/autosoftoss/autorepo-api/commit/826b6a3f8be10f2136f0d8a65f32db9f98a11265))
+* update to new gitkraken-cli ([fd42f98](https://github.com/autosoftoss/autorepo-api/commit/fd42f9881ad0e66b4fbd4ceaa89b34be1ca1b504))
+* update which-pm-lockfile ([69f397c](https://github.com/autosoftoss/autorepo-api/commit/69f397c50417435f7c3bce4c5c8abc588f9cb590))
+
+
+### Features
+
+* bump @autosoft/eslint-config ([8e07d98](https://github.com/autosoftoss/autorepo-api/commit/8e07d9841f8cfc19ac41998f31a5438605428462))
+* improve package json init by adding more fields & adjusting order ([b7be60c](https://github.com/autosoftoss/autorepo-api/commit/b7be60ca442b8126683815acbafdedcae90074c6))
+* run autobin after building source ([e85ca43](https://github.com/autosoftoss/autorepo-api/commit/e85ca4358c72e8184543598b3964353c3ff0f689))
+
+
+
 ## [0.2.10](https://github.com/autosoftoss/autorepo-api/compare/v0.2.9...v0.2.10) (2023-01-07)
 
 

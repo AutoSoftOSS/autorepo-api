@@ -1,11 +1,13 @@
 {
   "name": "@autosoft/autorepo-api",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "API for Autorepo.",
   "license": "MIT",
   "private": false,
   "author": "Connor White",
-  "contributors": ["Connor White"],
+  "contributors": [
+    "Connor White"
+  ],
   "homepage": "https://github.com/autosoftoss/autorepo-api#readme",
   "repository": {
     "type": "git",
