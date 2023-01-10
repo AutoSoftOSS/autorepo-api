@@ -29,7 +29,7 @@
     "node": "^14.13.1 || >=16.0.0"
   },
   "scripts": {
-    "build": "swc source --out-dir .auto/build --copy-files && tsc --project ./tsconfig.json --emitDeclarationOnly --incremental",
+    "build": "yarn dev build",
     "dev": "ts-node-esm ./scripts/dev.ts",
     "lint": "eslint source --ext .ts && npmPkgJsonLint .",
     "prepack": "yarn build",
