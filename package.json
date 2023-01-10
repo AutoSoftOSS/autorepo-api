@@ -2,19 +2,22 @@
   "name": "@autosoft/autorepo-api",
   "version": "0.2.10",
   "description": "API for Autorepo.",
-  "main": ".auto/build/index.js",
-  "author": "Connor White",
   "license": "MIT",
   "private": false,
-  "type": "module",
+  "author": "Connor White",
+  "contributors": ["Connor White"],
+  "homepage": "https://github.com/autosoftoss/autorepo-api#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/autosoftoss/autorepo-api.git"
   },
+  "bugs": "https://github.com/autosoftoss/autorepo-api/issues",
   "keywords": [
     "auto",
     "repo"
   ],
+  "type": "module",
+  "main": ".auto/build/index.js",
   "exports": "./.auto/build/index.js",
   "types": ".auto/build/index.d.ts",
   "files": [
@@ -26,7 +29,7 @@
   "scripts": {
     "build": "swc source --out-dir .auto/build --copy-files && tsc --project ./tsconfig.json --emitDeclarationOnly --incremental",
     "dev": "ts-node-esm ./scripts/dev.ts",
-    "lint": "eslint source --ext .ts",
+    "lint": "eslint source --ext .ts && npmPkgJsonLint .",
     "prepack": "yarn build",
     "release": "yarn dev release"
   },
@@ -51,7 +54,7 @@
     "latest-version": "^7.0.0",
     "mem": "^9.0.2",
     "npm-description": "^1.0.2",
-    "npm-package-json-lint-config-auto": "^1.0.2",
+    "npm-package-json-lint-config-auto": "^1.1.0",
     "open": "^8.4.0",
     "open-editor": "^4.0.0",
     "package-add": "^2.0.2",

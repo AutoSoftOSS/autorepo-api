@@ -2,6 +2,7 @@ import clee, { parseString } from "clee";
 import enquirer from "enquirer";
 import install from "package-add";
 import { structure } from "../../structure.js";
+import { parseRepositoryURL } from "../../utils/index.js";
 
 function parsePackageName(name: string) {
   const split = name.split("/").reverse();
@@ -71,24 +72,37 @@ export const initPackage = clee("package")
         pkg.private = repoIsPrivate;
       }
     }
+    const author = typeof pkg.author === "string" ? pkg.author : pkg.author?.name;
+    const repository = parseRepositoryURL(pkg.repository);
     // Write package.json
     await structure(options.cwd).files().packageJSON.write({
+      // Package Info
       name: pkg.name,
       version: pkg.version ?? (options.monorepo ? undefined : "0.0.0"),
       description: pkg.description,
-      main: options.monorepo ? undefined : root.files().auto.files().build.files().index.relative,
-      author: typeof pkg.author === "string" ? pkg.author : pkg.author?.name,
       license: pkg.license ?? (repoIsPrivate ? "UNLICENSED" : "MIT"),
       private: pkg.private,
-      type: options.monorepo ? undefined : "module",
+      // People
+      author,
+      contributors: pkg.contributors ?? (author ? [author] : []),
+      // Links
+      homepage: pkg.homepage ?? (repository?.owner && repository.repo ? `https://github.com/${repository.owner}/${repository.repo}#readme` : undefined),
       repository: pkg.repository,
+      bugs: pkg.bugs ?? (repository?.owner && repository.repo ? `https://github.com/${repository.owner}/${repository.repo}/issues` : undefined),
+      // Keywords
       keywords: options.monorepo ? undefined : (pkg.keywords ?? []),
+      // Files
+      type: options.monorepo ? undefined : "module",
+      main: options.monorepo ? undefined : root.files().auto.files().build.files().index.relative,
       exports: options.monorepo ? undefined : `./${root.files().auto.files().build.files().index.relative}`,
+      module: pkg.module,
       types: options.monorepo ? undefined : root.files().auto.files().build.files().indexD.relative,
+      typings: pkg.typings,
       bin: options.monorepo ? undefined : pkg.bin,
       files: options.monorepo ? undefined : [
         `${root.files().auto.files().build.relative}/**/!(tsconfig.tsbuildinfo)`
       ],
+      os: pkg.os,
       engines: pkg.engines ?? (options.monorepo ? undefined : {
         node: "^14.13.1 || >=16.0.0"
       }),
@@ -115,16 +129,18 @@ export const initPackage = clee("package")
       eslintConfig: options.monorepo ? undefined : {
         extends: "@autosoft/eslint-config"
       },
+      husky: pkg.husky,
       jest: options.monorepo ? undefined : {
         preset: "@autosoft/jest-preset"
       },
       npmpackagejsonlint: options.monorepo ? undefined : {
         extends: "npm-package-json-lint-config-auto"
       },
-      // packageManager: // TODO: get package manager + version, ex: "pnpm@7.15.0"
+      packageManager: pkg.packageManager, // TODO: get package manager + version, ex: "pnpm@7.15.0"
       workspaces: options.monorepo ? [
         "packages/*"
-      ] : undefined
+      ] : undefined,
+      publishConfig: pkg.publishConfig
     });
     // Install dependencies
     await install("autorepo", { save: "dev", ignoreWorkspaceRootCheck: options.monorepo });
