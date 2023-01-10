@@ -7,7 +7,7 @@ export const initGitignore = clee("gitignore")
   .description("Initialize a .gitignore file")
   .option("-c", "--cwd", "[path]", "Path to root of the git repository", parseString)
   .action(async ({ cwd }) => {
-    structure(cwd).files().gitIgnore.write(join([
+    await structure(cwd).files().gitIgnore.write(join([
       `${structure().files().auto.relative}`,
       `${structure().files().turbo.relative}`,
       "node_modules",
