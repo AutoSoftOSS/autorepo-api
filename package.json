@@ -31,7 +31,7 @@
     "release": "yarn dev release"
   },
   "dependencies": {
-    "@autosoft/eslint-config": "^1.0.2",
+    "@autosoft/eslint-config": "^1.1.0",
     "@autosoft/jest-preset": "^1.0.5",
     "@autosoft/tsconfig": "^1.0.1",
     "@bconnorwhite/exec": "^6.0.12",
