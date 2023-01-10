@@ -4,7 +4,7 @@ import { structure } from "../structure.js";
 
 export const dev = clee("dev")
   .description("Run the project directly, without building")
-  .argument("[path]", "Path to file to run")
+  .argument("[path]", "File path to run")
   .action(async (path) => {
     run({
       command: "ts-node-esm",

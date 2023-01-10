@@ -6,7 +6,7 @@ import { structure } from "../../../structure.js";
 import { getRepositoryURL } from "../../../utils/index.js";
 
 export const openRepo = clee("repo")
-  .description("Open the current repository in your browser")
+  .description("Open the repository in your browser")
   .command(openRepoIssues)
   .command(openRepoReleases)
   .action(async () => {

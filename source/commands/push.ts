@@ -3,6 +3,7 @@ import { exec } from "@bconnorwhite/exec";
 import { getCurrentBranch } from "../utils/git.js";
 
 export const push = clee("push")
+  .description("Push the current branch to origin, including tags")
   .argument("[branch]", "Branch to push")
   .option("-f", "--force", "Force the push")
   .action(async (branch, options) => {

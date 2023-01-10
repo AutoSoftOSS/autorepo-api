@@ -6,6 +6,7 @@ import { initRemote } from "./init/remote.js";
 import { initGitignore } from "./init/gitignore.js";
 
 export const exportPackage = clee("export")
+  .description("Export a package as a submodule standalone repository")
   .argument("<package>")
   .action(async (pkg) => {
     const pkgDir = structure().files().packages.subdirectory(pkg);

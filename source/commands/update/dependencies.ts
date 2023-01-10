@@ -14,6 +14,7 @@ const dependencyTypes = {
 type DependencyEntries = [keyof typeof dependencyTypes, typeof dependencyTypes[keyof typeof dependencyTypes]][];
 
 export const updateDependencies = clee("dependencies")
+  .description("Update dependencies to the latest matching version")
   .option("-c", "--cwd", "[path]", "Path to root of the package", parseString)
   .action(async (options) => {
     const root = structure(options.cwd);

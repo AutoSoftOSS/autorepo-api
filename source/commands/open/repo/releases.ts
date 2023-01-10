@@ -4,7 +4,7 @@ import { structure } from "../../../structure.js";
 import { getRepositoryURL } from "../../../utils/index.js";
 
 export const openRepoReleases = clee("releases")
-  .description("Open the releases page for the current repository")
+  .description("Open the repository's releases page")
   .action(async () => {
     const pkg = await structure().files().packageJSON.read();
     const url = getRepositoryURL(pkg?.repository);

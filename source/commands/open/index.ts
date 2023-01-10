@@ -5,6 +5,7 @@ import { openEditor } from "./editor.js";
 import openKraken from "gitkraken-cli";
 
 export const open = clee("open")
+  .description("Open the project in various ways")
   .command(openRepo)
   .command(openNPM)
   .command(openEditor)

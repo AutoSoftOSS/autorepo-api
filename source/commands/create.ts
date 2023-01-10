@@ -10,7 +10,7 @@ import {
 } from "./init/index.js";
 
 export const create = clee("create")
-  .description("Create a new package")
+  .description("Create a new sub package")
   .argument("<name>", "Name of the package to create")
   .option("-c", "--cwd", "[path]", "Project root", parseString)
   .action(async (name, { cwd }) => {

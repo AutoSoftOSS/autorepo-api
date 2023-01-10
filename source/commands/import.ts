@@ -4,6 +4,7 @@ import { exec } from "@bconnorwhite/exec";
 import { parseRepositoryURL } from "../utils/index.js";
 
 export const importPackage = clee("import")
+  .description("Import a package from a git repository as a submodule")
   .argument("<url>", "Repo URL to import from")
   .option("-n", "--name", "[name]", "Package directory name", parseString)
   .action(async (url, { name }) => {
