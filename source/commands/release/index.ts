@@ -47,9 +47,9 @@ export const release = clee("release")
     await pkg.merge({ version });
     await updateChangelog({ cwd: options.cwd });
     const changes = getChangelogSegmentBody(await streamToString(getNextChangelog()));
-    const octokit = await getOctoKit(parseRepositoryURL(pkgJSON?.repository)?.owner);
     const { owner, repo } = parseRepositoryURL(pkgJSON?.repository) ?? {};
     if(owner && repo) {
+      const octokit = await getOctoKit(owner);
       const primary = await getPrimaryBranch();
       const branch = await getCurrentBranch();
       // If the current branch is the primary branch, then we should rebase
