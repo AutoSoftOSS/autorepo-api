@@ -1,3 +1,15 @@
+## [0.2.13](https://github.com/autosoftoss/autorepo-api/compare/v0.2.12...v0.2.13) (2023-04-11)
+
+
+### Bug Fixes
+
+* bump clee ([385d417](https://github.com/autosoftoss/autorepo-api/commit/385d41737c8145c76b6af325829372a1ff41b5b1))
+* bump gitkraken-cli ([392f187](https://github.com/autosoftoss/autorepo-api/commit/392f187f5941a358021394d584ffde2bc94b08c0))
+* editorconfig don't trim trailing whitespace in markdown files ([0a42d75](https://github.com/autosoftoss/autorepo-api/commit/0a42d7583d45ebbb8152d3d43ea6be8f0b972e9c))
+* fix issue with test-d error output not being displayed ([3de23e1](https://github.com/autosoftoss/autorepo-api/commit/3de23e11bbeac3ded519fb0119e551f51a493b25))
+
+
+
 ## [0.2.12](https://github.com/autosoftoss/autorepo-api/compare/v0.2.11...v0.2.12) (2023-01-10)
 
 
