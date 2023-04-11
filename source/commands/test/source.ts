@@ -7,7 +7,7 @@ export const testSource = clee("source")
   .argument("[path]", "Path to test file or directory")
   .option("-d", "--debug", "Pass through console output for debugging")
   .action(async (path, options) => {
-    run({
+    await run({
       command: "jest",
       args: [{
         passWithNoTests: true,

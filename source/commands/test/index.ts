@@ -10,7 +10,8 @@ export const test = clee("test")
   .command(testTypes)
   .action(async (path, options) => {
     await testSource(path, options);
-    await testTypes();
+    // testTypes can return an Error, so we need to return it from the action.
+    return testTypes();
   });
 
 export * from "./source.js";
