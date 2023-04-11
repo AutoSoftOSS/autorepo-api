@@ -1,3 +1,12 @@
+## [0.2.14](https://github.com/autosoftoss/autorepo-api/compare/v0.2.13...v0.2.14) (2023-04-11)
+
+
+### Bug Fixes
+
+* bump autobin ([1634b6e](https://github.com/autosoftoss/autorepo-api/commit/1634b6e73a26ff80062a11f1362edb665cb0a6ad))
+
+
+
 ## [0.2.13](https://github.com/autosoftoss/autorepo-api/compare/v0.2.12...v0.2.13) (2023-04-11)
 
 
