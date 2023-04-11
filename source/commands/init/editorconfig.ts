@@ -15,6 +15,9 @@ export const initEditorconfig = clee("editorconfig")
       "end_of_line = lf",
       "charset = utf-8",
       "trim_trailing_whitespace = true",
-      "insert_final_newline = true"
+      "insert_final_newline = true",
+      "",
+      "[*.md]",
+      "trim_trailing_whitespace = false"
     ]));
   });
