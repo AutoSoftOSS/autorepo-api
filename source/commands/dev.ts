@@ -4,10 +4,11 @@ import { structure } from "../structure.js";
 
 export const dev = clee("dev")
   .description("Run the project directly, without building")
-  .argument("[path]", "File path to run")
-  .action(async (path) => {
+  .argument("[args...]", "Arguments to pass to the file")
+  .help() // Remove the help option
+  .action(async (args) => {
     run({
       command: "ts-node-esm",
-      args: [path ?? structure().files().source.files().bin.files().index.relative]
+      args: [structure().files().source.files().bin.files().index.relative, ...(args ?? [])]
     });
   });
