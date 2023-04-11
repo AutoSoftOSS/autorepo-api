@@ -1,6 +1,6 @@
 {
   "name": "@autosoft/autorepo-api",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "API for Autorepo.",
   "license": "MIT",
   "private": false,
