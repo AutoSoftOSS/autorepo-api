@@ -30,7 +30,7 @@
   },
   "scripts": {
     "build": "yarn dev build",
-    "dev": "ts-node-esm ./scripts/dev.ts",
+    "dev": "node --no-warnings --loader ts-node/esm ./scripts/dev.ts",
     "lint": "eslint source --ext .ts && npmPkgJsonLint .",
     "prepack": "yarn build",
     "release": "yarn dev release"
@@ -69,7 +69,8 @@
     "which-pm-lockfile": "^2.0.1"
   },
   "devDependencies": {
-    "@types/conventional-changelog": "^3.1.1"
+    "@types/conventional-changelog": "^3.1.1",
+    "typescript": "^5.1.6"
   },
   "eslintConfig": {
     "extends": "@autosoft/eslint-config"
