@@ -1,3 +1,13 @@
+## [0.2.15](https://github.com/autosoftoss/autorepo-api/compare/v0.2.14...v0.2.15) (2023-07-25)
+
+
+### Bug Fixes
+
+* font casing ([eca1363](https://github.com/autosoftoss/autorepo-api/commit/eca13633658f7646eb1a05cbdac203c7f8634e47))
+* pass through args from dev command ([7b6ca3f](https://github.com/autosoftoss/autorepo-api/commit/7b6ca3fd767a60409a1fa46f0511dbaf65d53794))
+
+
+
 ## [0.2.14](https://github.com/autosoftoss/autorepo-api/compare/v0.2.13...v0.2.14) (2023-04-11)
 
 
