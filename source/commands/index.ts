@@ -13,7 +13,7 @@ import { typecheck } from "./typecheck.js";
 import { release } from "./release/index.js";
 
 export const autorepo = clee("autorepo")
-  .title({ font: "slant" })
+  .title({ font: "Slant" })
   .description("Full Auto.")
   .command(init)
   .command(create)
